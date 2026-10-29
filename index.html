@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0b0b14" />
+<title>AIC Token — Mining Dashboard</title>
+<style>
+:root{--bg:#090a12;--panel:#121421;--panel2:#181b2b;--line:#292d42;--text:#f4f5ff;--muted:#9da3bc;--green:#b8ff5c;--purple:#a78bfa;--cyan:#5ce1e6;--danger:#ff7d8b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#211943 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{border-right:1px solid var(--line);padding:26px 17px;background:#0c0d16;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:850;letter-spacing:.2px;margin:0 10px 35px}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--green),#5ce1e6);color:#10131a;font-weight:950;box-shadow:0 0 28px #b8ff5c22}.nav{display:grid;gap:7px}.nav button{display:flex;gap:12px;align-items:center;text-align:left;padding:13px 14px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:12px}.nav button.active,.nav button:hover{background:#1a1d2d;color:var(--text);border-color:#2c3045}.nav .ico{width:21px;text-align:center}.side-note{position:absolute;left:17px;right:17px;bottom:20px;padding:15px;border:1px solid var(--line);background:var(--panel);border-radius:14px;color:var(--muted);font-size:12px;line-height:1.6}.side-note strong{color:var(--green);display:block;font-size:13px;margin-bottom:5px}.main{padding:30px clamp(18px,4vw,48px);max-width:1450px;width:100%;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:28px}.eyebrow{font-size:11px;color:var(--green);letter-spacing:2px;text-transform:uppercase;font-weight:800}.topbar h1{font-size:clamp(23px,3vw,32px);margin:5px 0 0}.userbox{display:flex;align-items:center;gap:10px}.avatar{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#292342;border:1px solid #51447a;color:#d6c8ff;font-weight:800}.pill{font-size:12px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:8px 12px;color:var(--muted)}.grid{display:grid;gap:17px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:linear-gradient(145deg,#151827,#10121d);border:1px solid var(--line);border-radius:19px;padding:21px;min-width:0;box-shadow:0 10px 40px #00000012}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:clamp(23px,2.5vw,31px);font-weight:850;letter-spacing:-.8px;margin:13px 0 8px}.trend{font-size:12px;color:var(--green)}.muted{color:var(--muted)}.content{grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr)}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:19px}.card h2{font-size:17px;margin:0}.small{font-size:12px;color:var(--muted)}.mining-card{overflow:hidden;position:relative;background:radial-gradient(circle at 80% 40%,#38306755,transparent 40%),linear-gradient(140deg,#19172c,#111521)}.mining-flex{display:flex;justify-content:space-between;align-items:center;gap:18px}.balance{font-size:clamp(34px,5vw,48px);font-weight:900;letter-spacing:-1.7px;margin:12px 0}.balance span{font-size:15px;color:var(--green);letter-spacing:0}.orb{width:125px;height:125px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:radial-gradient(circle at 30% 25%,#e0ff9d,#a7f74e 35%,#4c9d48 72%,#263d50);box-shadow:0 0 55px #a7ff4a2b,inset -10px -10px 25px #172c3a55;color:#15201a;font-size:37px;font-weight:950;border:5px solid #b8ff5c22}.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;transition:.15s}.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}.primary{background:var(--green);color:#12170d}.secondary{background:#25283a;color:var(--text);border:1px solid #373b53}.purple{background:#8c72f4;color:#fff}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.progress{height:8px;border-radius:20px;background:#282b3d;overflow:hidden;margin:15px 0 8px}.progress span{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:20px}.task{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #26293a}.task:last-child{border-bottom:0}.task-icon{width:38px;height:38px;border-radius:12px;background:#22263a;display:grid;place-items:center}.task-info{flex:1;min-width:0}.task-info strong{font-size:13px;display:block}.task-info span{font-size:11px;color:var(--muted)}.mini-btn{background:#252a3b;color:var(--green);border:1px solid #383d55;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:800}.section{display:none}.section.active{display:block}.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.form{display:grid;gap:13px;max-width:460px}.form label{font-size:12px;color:var(--muted)}.form input{width:100%;padding:13px;border-radius:11px;background:#0d0f19;border:1px solid var(--line);color:var(--text);margin-top:7px;outline:none}.form input:focus{border-color:var(--purple)}.notice{padding:13px 15px;border:1px solid #48406c;background:#211b38;border-radius:12px;color:#d8d0ff;font-size:12px;line-height:1.6;margin:14px 0}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{text-align:left;padding:13px 8px;border-bottom:1px solid var(--line)}.table th{color:var(--muted);font-weight:600}.status{color:var(--green);background:#24351d;border-radius:20px;padding:5px 8px;font-size:11px}.footer{margin-top:24px;color:#777e99;font-size:11px;line-height:1.6}.mobile-nav{display:none}.hidden{display:none!important}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.content{grid-template-columns:1fr}.sidebar{width:210px}.app{grid-template-columns:210px 1fr}}
+@media(max-width:700px){.app{display:block}.sidebar{display:none}.main{padding:22px 15px 90px}.topbar{align-items:flex-start}.userbox .pill{display:none}.stats{gap:10px}.card{padding:17px;border-radius:16px}.stat-value{font-size:25px}.orb{width:88px;height:88px;font-size:28px}.two-col{grid-template-columns:1fr}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;background:#10111bfa;border-top:1px solid var(--line);padding:8px 3px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;backdrop-filter:blur(14px)}.mobile-nav button{background:transparent;border:0;color:var(--muted);font-size:10px;display:grid;gap:4px;justify-items:center;padding:6px}.mobile-nav button.active{color:var(--green)}.mobile-nav span{font-size:18px}.table{font-size:11px}.table th,.table td{padding:10px 5px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">A</div><div>AIC <span style="color:var(--green)">TOKEN</span></div></div>
+  <nav class="nav" id="sideNav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span>Dashboard</button>
+    <button data-page="mining"><span class="ico">⛏</span>Mining</button>
+    <button data-page="referrals"><span class="ico">♧</span>Referrals</button>
+    <button data-page="wallet"><span class="ico">◈</span>Wallet</button>
+    <button data-page="account"><span class="ico">◎</span>Account</button>
+    <button data-page="admin"><span class="ico">⚙</span>Admin preview</button>
+  </nav>
+  <div class="side-note"><strong>✦ AIC Ecosystem</strong>This is a demo dashboard. Token balances and transactions are simulated locally and have no real monetary value.</div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><div class="eyebrow">AIC ECOSYSTEM / TEST MODE</div><h1 id="pageTitle">Dashboard</h1></div><div class="userbox"><span class="pill" id="modePill">● Demo mode</span><div class="avatar" id="avatar">A</div></div></header>
+  <section class="section active" id="page-dashboard">
+    <div class="grid stats">
+      <div class="card"><div class="stat-label">Total AIC Balance</div><div class="stat-value" id="balanceStat">125.00 <span style="font-size:13px;color:var(--green)">AIC</span></div><div class="trend">↗ Demo balance</div></div>
+      <div class="card"><div class="stat-label">Mining Rate</div><div class="stat-value">+1.5 <span style="font-size:13px;color:var(--green)">AIC/day</span></div><div class="small">Illustrative rate only</div></div>
+      <div class="card"><div class="stat-label">Total Referrals</div><div class="stat-value" id="refStat">3</div><div class="trend">Invite friends to grow</div></div>
+      <div class="card"><div class="stat-label">Wallet Status</div><div class="stat-value" style="font-size:22px" id="walletStat">Not connected</div><div class="small">TON wallet integration pending</div></div>
+    </div>
+    <div class="grid content">
+      <div class="card mining-card"><div class="card-head"><div><div class="eyebrow">YOUR MINING SPACE</div><h2 style="margin-top:7px">Mining overview</h2></div><span class="pill">TESTNET UI</span></div>
+        <div class="mining-flex"><div><div class="small">Available demo balance</div><div class="balance"><b id="mainBalance">125.00</b> <span>AIC</span></div><div class="muted" style="font-size:13px">Mining status: <strong id="mineStatus" style="color:var(--green)">Ready to claim</strong></div></div><div class="orb">A</div></div>
+        <div class="progress"><span id="progressBar"></span></div><div class="small">Demo progress · No real tokens are generated</div>
+        <div class="btn-row"><button class="btn primary" id="claimBtn">⛏ Claim demo reward</button><button class="btn secondary" data-goto="mining">Mining details ↗</button></div>
+      </div>
+      <div class="card"><div class="card-head"><h2>Quick actions</h2><span class="small">Explore</span></div>
+        <div class="task"><div class="task-icon">✈</div><div class="task-info"><strong>Connect Telegram</strong><span>Link your Telegram bot</span></div><button class="mini-btn" id="telegramBtn">Open bot</button></div>
+        <div class="task"><div class="task-icon">♧</div><div class="task-info"><strong>Invite friends</strong><span>Share your referral link</span></div><button class="mini-btn" data-goto="referrals">Invite</button></div>
+        <div class="task"><div class="task-icon">◈</div><div class="task-info"><strong>Wallet</strong><span>Wallet setup is pending</span></div><button class="mini-btn" data-goto="wallet">View</button></div>
+        <div class="task"><div class="task-icon">✓</div><div class="task-info"><strong>Account status</strong><span id="accountSummary">Guest demo</span></div><button class="mini-btn" data-goto="account">Manage</button></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="page-mining">
+    <div class="grid two-col">
+      <div class="card mining-card"><div class="eyebrow">MINING CENTER</div><h2 style="margin-top:8px">Your AIC Miner</h2><div class="balance"><b id="mineBalance">125.00</b> <span>AIC</span></div><p class="muted">Demo mining rate: <b style="color:var(--green)">1.5 AIC/day</b></p><div class="notice">This is a front-end prototype. Claiming adds a small demo amount saved in this browser only. It is not blockchain mining or a real token payout.</div><button class="btn primary" id="claimBtn2">Claim 0.10 demo AIC</button></div>
+      <div class="card"><h2>Mining details</h2><div class="task"><div class="task-info"><strong>Miner status</strong><span>Demo / local browser</span></div><span class="status">Active UI</span></div><div class="task"><div class="task-info"><strong>Daily rate</strong><span>Example value, not a promise</span></div><strong>1.5 AIC</strong></div><div class="task"><div class="task-info"><strong>Last demo claim</strong><span id="lastClaim">No claim yet</span></div></div></div>
+    </div>
+  </section>
+  <section class="section" id="page-referrals">
+    <div class="grid two-col">
+      <div class="card"><div class="eyebrow">COMMUNITY GROWTH</div><h2 style="margin:8px 0 12px">Invite & earn demo rewards</h2><p class="muted" style="font-size:13px;line-height:1.7">Share your referral link with friends. Real referral tracking must be verified by your backend or Telegram bot.</p><div class="form"><label>Your demo referral link<input id="refLink" readonly value="https://t.me/YourAICBot?start=demo123"></label><button class="btn primary" id="copyRef">Copy referral link</button></div><div class="notice" id="copyNotice">Demo link only. Replace it with your actual Telegram bot username before launch.</div></div>
+      <div class="card"><h2>Referral overview</h2><div class="stat-value"><span id="refCount">3</span> <span style="font-size:13px;color:var(--green)">friends</span></div><div class="task"><div class="task-info"><strong>Referral reward</strong><span>Configure on backend</span></div><strong>Not set</strong></div><div class="task"><div class="task-info"><strong>Verified referrals</strong><span>Demo count only</span></div><strong>2</strong></div></div>
+    </div>
+  </section>
+  <section class="section" id="page-wallet">
+    <div class="grid two-col">
+      <div class="card"><div class="eyebrow">WALLET CENTER</div><h2 style="margin:8px 0 12px">Connect your wallet</h2><p class="muted" style="font-size:13px;line-height:1.7">Wallet connection is not active in this demo. A production TON wallet flow needs a trusted wallet connector, server-side verification, and clear transaction confirmations.</p><button class="btn purple" id="walletBtn">◈ Wallet integration setup required</button><div class="notice" id="walletNotice">Never enter a seed phrase or private key on this website.</div></div>
+      <div class="card"><h2>Deposit & withdraw</h2><p class="muted" style="font-size:13px;line-height:1.7">These forms are disabled for real funds until a secure backend and verified payment flow are implemented.</p><div class="form"><label>Deposit amount<input type="number" min="0" placeholder="0.00" disabled></label><button class="btn secondary" disabled>Deposit unavailable in demo</button><label>Withdraw amount<input type="number" min="0" placeholder="0.00" disabled></label><button class="btn secondary" disabled>Withdraw unavailable in demo</button></div></div>
+    </div>
+  </section>
+  <section class="section" id="page-account">
+    <div class="grid two-col">
+      <div class="card"><h2>Login / Register</h2><p class="muted" style="font-size:13px;line-height:1.7">Prototype-only account profile. This does not create a secure online account. For production, use a backend authentication service.</p><div class="form"><label>Display name<input id="displayName" placeholder="Your name"></label><label>Email (optional demo field)<input id="email" type="email" placeholder="you@example.com"></label><button class="btn primary" id="saveProfile">Save demo profile</button><button class="btn secondary" id="resetDemo">Reset demo data</button></div><div id="profileMsg" class="notice">You are browsing as a guest.</div></div>
+      <div class="card"><h2>Account requirements</h2><div class="task"><div class="task-icon">🔐</div><div class="task-info"><strong>Secure login</strong><span>Backend authentication required</span></div></div><div class="task"><div class="task-icon">🛡</div><div class="task-info"><strong>Abuse prevention</strong><span>Rate limits and referral validation</span></div></div><div class="task"><div class="task-icon">🧾</div><div class="task-info"><strong>Transaction history</strong><span>Database and audit trail required</span></div></div></div>
+    </div>
+  </section>
+  <section class="section" id="page-admin">
+    <div class="notice">Admin preview only. This page is visible in the demo and is NOT protected. Do not use this as a real admin panel or store secrets here.</div>
+    <div class="grid stats"><div class="card"><div class="stat-label">Demo users</div><div class="stat-value">1,284</div><div class="small">Sample data</div></div><div class="card"><div class="stat-label">Demo claims</div><div class="stat-value">8,492</div><div class="small">Sample data</div></div><div class="card"><div class="stat-label">Pending withdrawals</div><div class="stat-value">12</div><div class="small">Sample data only</div></div><div class="card"><div class="stat-label">System</div><div class="stat-value" style="color:var(--green)">Prototype</div><div class="small">No live transactions</div></div></div>
+    <div class="card"><div class="card-head"><h2>Recent demo activity</h2><span class="pill">Sample data</span></div><table class="table"><thead><tr><th>User</th><th>Activity</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr><td>@aic_user01</td><td>Mining claim</td><td>0.10 AIC</td><td><span class="status">Demo</span></td></tr><tr><td>@crypto_fan</td><td>Referral</td><td>—</td><td><span class="status">Demo</span></td></tr><tr><td>@ton_holder</td><td>Wallet connect</td><td>—</td><td><span class="status">Demo</span></td></tr></tbody></table></div>
+  </section>
+  <div class="footer">© 2026 AIC Token · Prototype interface · No real tokens, deposits, withdrawals, or wallet transactions are processed. Never share seed phrases or private keys.</div>
+</main>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<button class="active" data-page="dashboard"><span>▦</span>Home</button><button data-page="mining"><span>⛏</span>Mining</button><button data-page="referrals"><span>♧</span>Referrals</button><button data-page="wallet"><span>◈</span>Wallet</button><button data-page="account"><span>◎</span>Account</button>
+</nav>
+<script>
+const $=id=>document.getElementById(id);
+const pages={dashboard:"Dashboard",mining:"Mining Center",referrals:"Referral Program",wallet:"Wallet Center",account:"Account",admin:"Admin Preview"};
+function go(page){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));$("page-"+page).classList.add("active");$("pageTitle").textContent=pages[page]||"Dashboard";document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
+let state={balance:125,referrals:3,lastClaim:"No claim yet",name:"",email:"",wallet:false};
+try{const saved=JSON.parse(localStorage.getItem("aicDemoState")||"null");if(saved)state={...state,...saved}}catch(e){}
+function save(){localStorage.setItem("aicDemoState",JSON.stringify(state));render()}
+function render(){["balanceStat","mainBalance","mineBalance"].forEach(id=>$(id).textContent=Number(state.balance).toFixed(2));$("refStat").textContent=state.referrals;$("refCount").textContent=state.referrals;$("walletStat").textContent=state.wallet?"Demo connected":"Not connected";$("lastClaim").textContent=state.lastClaim;$("mineStatus").textContent="Ready to claim";$("avatar").textContent=(state.name||"A").trim().charAt(0).toUpperCase();$("accountSummary").textContent=state.name||"Guest demo";$("displayName").value=state.name||"";$("email").value=state.email||"";$("progressBar").style.width=(40+(state.balance%50))+"%";if(state.name){$("profileMsg").textContent="Demo profile saved for "+state.name+" on this browser."}}
+function claim(){state.balance=Number((state.balance+0.1).toFixed(2));state.lastClaim=new Date().toLocaleString();save();$("mineStatus").textContent="Demo reward added";alert("Demo reward added: +0.10 AIC. This is only local test data, not a real token payout.")}
+$("claimBtn").addEventListener("click",claim);$("claimBtn2").addEventListener("click",claim);
+$("telegramBtn").addEventListener("click",()=>{alert("Add your real Telegram bot URL in index.html before launch.");});
+$("walletBtn").addEventListener("click",()=>{$("walletNotice").textContent="Wallet connection is not implemented yet. Add a reviewed TON Connect integration before accepting transactions. Never enter a seed phrase or private key.";});
+$("copyRef").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("refLink").value);$("copyNotice").textContent="Demo referral link copied."}catch(e){$("refLink").select();document.execCommand("copy");$("copyNotice").textContent="Select and copy this demo link; replace the bot username before launch."}});
+$("saveProfile").addEventListener("click",()=>{state.name=$("displayName").value.trim();state.email=$("email").value.trim();save();$("profileMsg").textContent=state.name?"Demo profile saved in this browser. This is not a secure online account.":"Guest demo profile."});
+$("resetDemo").addEventListener("click",()=>{if(confirm("Reset your local AIC demo data?")){localStorage.removeItem("aicDemoState");state={balance:125,referrals:3,lastClaim:"No claim yet",name:"",email:"",wallet:false};render();$("profileMsg").textContent="Demo data reset."}});
+render();
+</script>
+</body>
+</html>
